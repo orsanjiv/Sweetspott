@@ -1,0 +1,26 @@
+<div class=" py-1 sm:py-2 lg:py-1 bg-gray-100 min-h-screen">
+  <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+    <div class="mb-6 flex items-end justify-between gap-4">
+      <h2 class="text-2xl font-bold text-gray-800 lg:text-3xl">Our Cake Menu!</h2>
+    </div>
+
+    <div class="grid gap-x-4 gap-y-8 sm:grid-cols-2 md:gap-x-6 lg:grid-cols-3 xl:grid-cols-4" >
+
+      <!-- product - start -->
+      @for(cake of cakeMenu; track cake.cakeName){
+      <div (click)="gotoCardDetail(cake.id)">
+        <a routerLink="/buy" class="group relative mb-2 block h-80 overflow-hidden rounded-lg bg-gray-100 lg:mb-3">
+          <img [src]="cake.cakeImage" loading="lazy" alt="Photo by Fakurian Design" class="h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
+        </a>
+        <div>
+          <a routerLink="/buy" class="hover:gray-800 mb-1 text-gray-500 transition duration-100 lg:text-lg">{{cake.cakeName}}</a>
+        
+          <div class="flex items-end gap-2">
+            <span class="font-bold text-gray-800 lg:text-lg"> {{cake.cakePrice}} </span>
+          </div>
+        </div>
+      </div>
+    }
+    <!-- product - end -->
+  </div>
+</div>
